@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Log In | Online Flight Reservation</title>
+    <link rel="stylesheet" href="./css/login.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <% if (messages.error) { %>
+    <div
+      id="err"
+      style="
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        height: 4rem;
+        background-color: #d63f3f;
+        color: #ffffff;
+        font-weight: 600;
+        position: fixed;
+        box-shadow: 0px 6px 15px #0000005e;
+      "
+    >
+      <p><%= messages.error %></p>
+    </div>
+
+    <% } %> <% if (messages.success) { %>
+    <div
+      id="succ"
+      style="
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        height: 4rem;
+        background-color: #499746;
+        color: #ffffff;
+        font-weight: 600;
+        position: fixed;
+        box-shadow: 0px 6px 15px #0000005e;
+      "
+    >
+      <p><%= messages.success %></p>
+    </div>
+    <% } %>
+
+    <div class="form">
+      <div class="form-heading">
+        <p>Admin Login</p>
+      </div>
+
+      <div class="form-body">
+        <form action="/admin_login" method="POST">
+          <div class="email-form">
+            <label for="email-input">Email</label>
+            <input
+              type="email"
+              id="email-input"
+              placeholder="Email"
+              name="email"
+              required
+            />
+          </div>
+
+          <div class="password-form">
+            <label for="password-input">Password</label>
+            <input
+              type="password"
+              id="password-input"
+              placeholder="Password"
+              name="password"
+              required
+            />
+          </div>
+
+          <div class="submit-form">
+            <button type="submit">Login</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
