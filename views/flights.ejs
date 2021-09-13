@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flights | Online Flight Reservation</title>
+    <link rel="stylesheet" href="./css/flights.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="navbar-top">
+        <a href="/" class="navbar-brand">
+          <img src="./assets/logo-fff.svg" alt="logo" />
+          Flightopedia
+        </a>
+
+        <button type="button" class="navbar-toggler">
+          <div class="bars"></div>
+          <div class="bars"></div>
+          <div class="bars"></div>
+        </button>
+      </div>
+      <div class="navbar-bottom">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/flights" class="active">Flights</a></li>
+          <li><a href="/signup">Sign Up</a></li>
+          <li><a href="/login">Log In</a></li>
+        </ul>
+      </div>
+    </nav>
+    <!-- End of Navbar -->
+
+    <!-- Header -->
+    <header class="header"></header>
+    <!-- End of Header -->
+
+    <!-- Main -->
+    <main class="main">
+      <div class="main-header">
+        <h1>Check Out The Featured Flights</h1>
+        <p>
+          These are the featured flights schedules of Regent Airways and Novoair
+        </p>
+      </div>
+      <article class="main-content">
+        <section class="main-content-section international-flights">
+          <p class="heading">International Flights</p>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Flight No.</th>
+                <th>Airlines</th>
+                <th>Departure Time</th>
+                <th>Arrival Time</th>
+                <th>Source</th>
+                <th>Destination</th>
+                <th>Route</th>
+                <th>Days of operation</th>
+                <th>Reserve</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% for (let flight of internationalFlights) { %>
+              <tr>
+                <td><%= flight.flight_no %></td>
+                <td><%= flight.airlines %></td>
+                <td><%= flight.departure_time %></td>
+                <td><%= flight.arrival_time %></td>
+                <td><%= flight.source %></td>
+                <td><%= flight.destination %></td>
+                <td><%= flight.route %></td>
+                <td><%= flight.days_of_operation %></td>
+                <td>
+                  <form action="/ticket" method="POST">
+                    <button
+                      type="submit"
+                      name="reserve"
+                      value="<%= flight.flight_id %>|<%= flight.flight_no %>|<%= flight.airlines %>|<%= flight.departure_time %>|<%= flight.arrival_time %>|<%= flight.source %>|<%= flight.destination %>|<%= flight.route %>|<%= flight.days_of_operation %>"
+                    >
+                      Reserve
+                    </button>
+                  </form>
+                </td>
+              </tr>
+              <% } %>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="main-content-section domestic-flights">
+          <p class="heading">Domestic Flights</p>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Flight No.</th>
+                <th>Airlines</th>
+                <th>Departure Time</th>
+                <th>Arrival Time</th>
+                <th>Source</th>
+                <th>Destination</th>
+                <th>Route</th>
+                <th>Days of operation</th>
+                <th>Reserve</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% for (let flight of domesticFlights) { %>
+              <tr>
+                <td><%= flight.flight_no %></td>
+                <td><%= flight.airlines %></td>
+                <td><%= flight.departure_time %></td>
+                <td><%= flight.arrival_time %></td>
+                <td><%= flight.source %></td>
+                <td><%= flight.destination %></td>
+                <td><%= flight.route %></td>
+                <td><%= flight.days_of_operation %></td>
+                <td>
+                  <form action="/ticket" method="POST">
+                    <button
+                      type="submit"
+                      name="reserve"
+                      value="<%= flight.flight_id %>|<%= flight.flight_no %>|<%= flight.airlines %>|<%= flight.departure_time %>|<%= flight.arrival_time %>|<%= flight.source %>|<%= flight.destination %>|<%= flight.route %>|<%= flight.days_of_operation %>"
+                    >
+                      Reserve
+                    </button>
+                  </form>
+                </td>
+              </tr>
+              <% } %>
+            </tbody>
+          </table>
+        </section>
+      </article>
+    </main>
+    <!-- End of Main -->
+
+    <script src="/js/navbar.js"></script>
+  </body>
+</html>

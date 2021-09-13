@@ -12,27 +12,75 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <!-- Navbar -->
     <nav class="navbar">
       <div class="navbar-top">
-        <a href="/" class="navbar-brand">Logo</a>
+        <a href="/" class="navbar-brand">
+          <img src="./assets/logo-fff.svg" alt="logo" />
+          Flightopedia
+        </a>
 
         <button type="button" class="navbar-toggler">
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
+          <div class="bars"></div>
+          <div class="bars"></div>
+          <div class="bars"></div>
         </button>
       </div>
       <div class="navbar-bottom">
         <ul>
           <li><a href="/" class="active">Home</a></li>
-          <li><a href="#">Flights</a></li>
+          <li><a href="/flights">Flights</a></li>
           <li><a href="/signup">Sign Up</a></li>
           <li><a href="/login">Log In</a></li>
         </ul>
       </div>
     </nav>
+    <!-- End of Navbar -->
+
+    <!-- Header -->
+    <header class="header">
+      <figure>
+        <p>Wikipedia with every possible flight details!</p>
+        <figcaption>
+          Save your time, enjoy and fly with Flightopedia!
+        </figcaption>
+      </figure>
+    </header>
+    <!-- End of Header -->
+
+    <!-- Main -->
+    <main class="main">
+      <!-- Banner 1 -->
+      <article class="banner banner-1">
+        <section class="banner-header">
+          <h1>Check Out The Featured Flight Schedules</h1>
+          <!-- <p>
+            These are the featured flights schedules of Regent Airways and
+            Novoair
+          </p> -->
+        </section>
+        <section class="banner-content">
+          <p></p>
+        </section>
+      </article>
+      <!-- End of Banner 1 -->
+
+      <!-- Banner 2 -->
+      <article class="banner banner-1"></article>
+      <!-- End of Banner 2 -->
+    </main>
+    <!-- End of Main -->
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>&copy; Flightopedia 2021</p>
+    </footer>
+    <script src="/js/navbar.js"></script>
   </body>
 </html>

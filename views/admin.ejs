@@ -1,5 +1,159 @@
-<h1>Hi, <%= admin_name %> !!</h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Portal | Online Flight Reservation</title>
+    <link rel="stylesheet" href="./css/admin.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="navbar-top">
+        <a href="/" class="navbar-brand">
+          <img src="./assets/logo-fff.svg" alt="logo" />
+          Flightopedia
+        </a>
 
-<form action="/admin_logout?_method=DELETE" method="POST">
-  <button type="submit">Log Out</button>
-</form>
+        <p class="admin-name">Howdy, <span><%= admin_name %></span>!</p>
+
+        <button type="button" class="navbar-toggler">
+          <div class="bars"></div>
+          <div class="bars"></div>
+          <div class="bars"></div>
+        </button>
+      </div>
+
+      <div class="navbar-bottom">
+        <ul>
+          <li><a href="/" class="active">Home</a></li>
+          <li><a href="/flights">Flights</a></li>
+          <li>
+            <form action="/admin_logout?_method=DELETE" method="POST">
+              <button type="submit">Log Out</button>
+            </form>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- End of Navbar -->
+
+    <% if (messages.error) { %>
+    <div
+      id="err"
+      style="
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        height: 4rem;
+        background-color: #d63f3f;
+        color: #ffffff;
+        font-weight: 600;
+      "
+    >
+      <p><%= messages.error %></p>
+    </div>
+
+    <% } %> <% if (messages.success) { %>
+    <div
+      id="succ"
+      style="
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        height: 4rem;
+        background-color: #499746;
+        color: #ffffff;
+        font-weight: 600;
+      "
+    >
+      <p><%= messages.success %></p>
+    </div>
+
+    <% } %> <% if (messages.info) { %>
+    <div
+      id="succ"
+      style="
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        height: 4rem;
+        background-color: #52accf;
+        color: #ffffff;
+        font-weight: 600;
+      "
+    >
+      <p><%= messages.info %></p>
+    </div>
+    <% } %>
+
+    <!-- Main -->
+    <main>
+      <div class="main-header">
+        <h1>Dashboard</h1>
+      </div>
+
+      <article class="booked-tickets">
+        <h2>Your Booked Tickets</h2>
+
+        <section class="booked-tickets-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Flight No.</th>
+                <th>Airlines</th>
+                <th>Source</th>
+                <th>Destination</th>
+                <th>Departure Time</th>
+                <th>Arrival Time</th>
+                <th>Booking Date</th>
+                <th>Seat Number</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% for ( let ticket of tickets ) { %>
+              <tr>
+                <td><%= ticket.flight_no %></td>
+                <td><%= ticket.airlines %></td>
+                <td><%= ticket.source %></td>
+                <td><%= ticket.destination %></td>
+                <td><%= ticket.departure_time %></td>
+                <td><%= ticket.arrival_time %></td>
+                <td><%= ticket.booking_date %></td>
+                <td><%= ticket.seat_number %></td>
+                <td>
+                  <form
+                    action="/ticket/<%= ticket.ticket_id %>?_method=DELETE"
+                    method="POST"
+                  >
+                    <button type="submit" name="cancel">Cancel</button>
+                  </form>
+                </td>
+              </tr>
+              <% } %>
+            </tbody>
+          </table>
+        </section>
+      </article>
+    </main>
+
+    <script src="/js/navbar.js"></script>
+  </body>
+</html>
