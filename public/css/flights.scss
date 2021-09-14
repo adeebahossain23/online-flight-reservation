@@ -10,6 +10,10 @@ $background-overlay-left: #000000c9;
 body {
   font-family: "Montserrat", sans-serif;
   overflow-x: hidden;
+  background-image: url("/assets/header_img.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 // Navbar
@@ -109,14 +113,24 @@ nav.navbar {
 // Header
 header {
   width: 100%;
-  height: 30vh;
+  height: 40vh;
   background-image: linear-gradient(
-      to right,
-      $background-overlay-left,
-      $background-overlay-right
-    ),
-    url("/assets/header_img.jpg");
-  background-size: cover;
+    to right,
+    $background-overlay-left,
+    $background-overlay-right
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+    margin-top: 2rem;
+  }
 }
 
 // Main

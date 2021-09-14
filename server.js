@@ -44,18 +44,6 @@ connection.connect((err) => {
   console.log("Connected to database");
 });
 
-// connection.query("SELECT * FROM ticket", (err, results) => {
-//   if (err) {
-//     console.log(err);
-//     return;
-//   }
-
-//   results.forEach((result) => {
-//     result.booking_date = result.booking_date;
-//   });
-//   console.log(results);
-// });
-
 initializePassport(passport, connection);
 
 app.get("/", (req, res) => {
@@ -126,7 +114,7 @@ app.get("/login", checkNotAuthenticatedForUsers, (req, res) => {
 });
 
 app.get("/admin", checkAuthenticatedForAdmins, (req, res) => {
-  connection.query("SELECT * FROM ticket", (err, results) => {
+  connection.query("SELECT user.name, ticket.* FROM user INNER JOIN ticket ON user.passport_number = ticket.passport_number", (err, results) => {
     if (err) {
       console.log(err);
       return;
