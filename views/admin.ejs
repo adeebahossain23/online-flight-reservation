@@ -35,7 +35,7 @@
 
       <div class="navbar-bottom">
         <ul>
-          <li><a href="/" class="active">Home</a></li>
+          <li><a href="/">Home</a></li>
           <li><a href="/flights">Flights</a></li>
           <li>
             <form action="/admin_logout?_method=DELETE" method="POST">
@@ -109,12 +109,14 @@
       </div>
 
       <article class="booked-tickets">
-        <h2>Your Booked Tickets</h2>
+        <h2>All Booked Tickets</h2>
 
         <section class="booked-tickets-container">
           <table>
             <thead>
               <tr>
+                <th>Owner</th>
+                <th>Passport No.</th>
                 <th>Flight No.</th>
                 <th>Airlines</th>
                 <th>Source</th>
@@ -130,6 +132,8 @@
             <tbody>
               <% for ( let ticket of tickets ) { %>
               <tr>
+                <td><%= ticket.name %></td>
+                <td><%= ticket.passport_number %></td>
                 <td><%= ticket.flight_no %></td>
                 <td><%= ticket.airlines %></td>
                 <td><%= ticket.source %></td>
