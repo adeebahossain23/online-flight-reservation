@@ -181,6 +181,75 @@ main {
     padding: 2rem;
     // background-color: #fff;
 
+    form.sorter {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 15rem;
+      background-color: #fff;
+      border-radius: 20px;
+
+      .sort-by-destination {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 1rem;
+
+        label {
+          font-size: 1.2rem;
+          font-weight: 700;
+          color: #6cb96c;
+          margin: 1rem 0;
+        }
+
+        select {
+          width: 20rem;
+          height: 2.5rem;
+          border: 1px solid #6cb96c;
+          border-radius: 5px;
+          padding: 0.5rem;
+          font-size: 1rem;
+          font-weight: 400;
+          color: #6cb96c;
+          background-color: #fff;
+          font-family: "Montserrat", sans-serif;
+          transition: all 0.5s ease-in-out;
+          text-align: center;
+
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+
+      .submit-btn {
+        button {
+          width: 7rem;
+          height: 2.5rem;
+          border: 1px solid #6cb96c;
+          border-radius: 5px;
+          margin: 1rem;
+          font-size: 1rem;
+          font-weight: 400;
+          color: #6cb96c;
+          background-color: #fff;
+          margin: 1rem 0;
+          cursor: pointer;
+          transition: all 0.2s ease-in-out;
+          font-family: "Montserrat", sans-serif;
+
+          &:hover {
+            background-color: #6cb96c;
+            color: #fff;
+          }
+        }
+      }
+    }
+
     section.main-content-section {
       display: flex;
       flex-direction: column;
@@ -203,8 +272,9 @@ main {
         width: 100%;
         border-collapse: collapse;
         border-spacing: 0;
-        border: 1px solid #6cb96c;
-
+        // border: 1px solid #6cb96c;
+        border-radius: 20px 20px 0 0;
+        
         thead {
           display: flex;
           flex-direction: row;
@@ -213,7 +283,8 @@ main {
           width: 100%;
           height: 3rem;
           background-color: #6cb96c;
-
+          border-radius: 20px 20px 0 0;
+          
           tr {
             display: flex;
             flex-direction: row;
@@ -222,7 +293,8 @@ main {
             width: 100%;
             height: 3rem;
             background-color: #6cb96c;
-
+            border-radius: 20px 20px 0 0;
+            
             th {
               font-size: 0.9rem;
               font-weight: 700;
@@ -230,6 +302,8 @@ main {
               text-align: center;
               padding: 0.5rem;
               width: 11%;
+              border-radius: 2rem;
+              border-radius: 20px 20px 0 0;
             }
           }
         }

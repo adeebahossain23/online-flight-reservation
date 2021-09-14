@@ -105,6 +105,33 @@ app.get("/flights", (req, res) => {
   );
 });
 
+app.post("/flights", (req, res) => {
+  let destination = req.body.sort_by_destination;
+
+  if (destination === "") {
+    res.redirect("/flights");
+  } else {
+    connection.query(
+      `SELECT * FROM flight WHERE destination="${destination}" ORDER BY airlines ASC`,
+      (err, results) => {
+        if (err) {
+          console.log(err);
+          return;
+        }
+
+        res.render("flights.ejs", {
+          domesticFlights: results.filter(
+            (flight) => flight.flight_type === "Domestic"
+          ),
+          internationalFlights: results.filter(
+            (flight) => flight.flight_type === "International"
+          ),
+        });
+      }
+    );
+  }
+});
+
 app.get("/signup", checkNotAuthenticatedForUsers, (req, res) => {
   res.render("signup.ejs");
 });
@@ -114,17 +141,20 @@ app.get("/login", checkNotAuthenticatedForUsers, (req, res) => {
 });
 
 app.get("/admin", checkAuthenticatedForAdmins, (req, res) => {
-  connection.query("SELECT user.name, ticket.* FROM user INNER JOIN ticket ON user.passport_number = ticket.passport_number", (err, results) => {
-    if (err) {
-      console.log(err);
-      return;
-    }
+  connection.query(
+    "SELECT user.name, ticket.* FROM user INNER JOIN ticket ON user.passport_number = ticket.passport_number",
+    (err, results) => {
+      if (err) {
+        console.log(err);
+        return;
+      }
 
-    res.render("admin.ejs", {
-      admin_name: req.user.username,
-      tickets: results.length === 0 || !results ? [] : results,
-    });
-  });
+      res.render("admin.ejs", {
+        admin_name: req.user.username,
+        tickets: results.length === 0 || !results ? [] : results,
+      });
+    }
+  );
 });
 
 app.get("/admin_login", checkNotAuthenticatedForAdmins, (req, res) => {

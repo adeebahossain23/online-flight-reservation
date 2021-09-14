@@ -276,6 +276,7 @@ main article.banner section.banner-content {
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
+  height: 100%;
   padding: 2rem;
   background-color: #d7f1d7;
   overflow: hidden;
@@ -300,7 +301,7 @@ main article.banner section.banner-content section.banner-content-left {
 }
 
 main article.banner section.banner-content section.banner-content-left img {
-  width: 50rem;
+  width: 35rem;
   border-radius: 20px;
 }
 

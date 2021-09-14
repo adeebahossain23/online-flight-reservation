@@ -190,6 +190,7 @@ main {
       justify-content: center;
       align-items: center;
       width: 100%;
+      height: 100%;
       padding: 2rem;
       background-color: #d7f1d7;
       overflow: hidden;
@@ -201,13 +202,13 @@ main {
         align-items: flex-end;
         width: 50%;
         padding: 1rem;
-        
+
         img {
-          width: 50rem;
+          width: 35rem;
           border-radius: 20px;
         }
       }
-      
+
       section.banner-content-right {
         display: flex;
         flex-direction: column;

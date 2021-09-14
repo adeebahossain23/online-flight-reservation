@@ -58,6 +58,35 @@
         </p>
       </div>
       <article class="main-content">
+        <form action="/flights" method="POST" class="sorter">
+          <div class="sort-by-destination">
+            <label for="sort-by-destination"
+              >Where are you planning to go?</label
+            >
+            <select name="sort_by_destination" id="sort-by-destination">
+              <option value="">--- Select a destination ---</option>
+              <option value="Dhaka">Dhaka</option>
+              <option value="Chittagong">Chittagong</option>
+              <option value="Sylhet">Sylhet</option>
+              <option value="Jashore">Jashore</option>
+              <option value="Rajshahi">Rajshahi</option>
+              <option value="Barisal">Barisal</option>
+              <option value="Saidpur">Saidpur</option>
+              <option value="Cox's Bazar">Cox's Bazar</option>
+              <option value="Kuala Lumpur">Kuala Lumpur</option>
+              <option value="Doha">Doha</option>
+              <option value="Singapore">Singapore</option>
+              <option value="Kolkata">Kolkata</option>
+              <option value="Muscat">Muscat</option>
+            </select>
+          </div>
+          <div class="submit-btn">
+            <button type="submit">
+              <i class="fas fa-search"></i>&nbsp;Search
+            </button>
+          </div>
+        </form>
+
         <section class="main-content-section international-flights">
           <p class="heading">International Flights</p>
 
@@ -154,5 +183,9 @@
     <!-- End of Main -->
 
     <script src="/js/navbar.js"></script>
+    <script
+      src="https://kit.fontawesome.com/5189c9619d.js"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
